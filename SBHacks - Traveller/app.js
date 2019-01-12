@@ -3,6 +3,15 @@
  * Module dependencies.
  */
 
+//firebase database
+var admin = require ('firebase-admin');
+var serviceAccount = require('./serviceAccountKey.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://traveller-43dad.firebaseio.com'
+});
+
 var express = require('express');
 var routes = require('./routes');
 var http = require('http');
